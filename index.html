@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<title>Aktie-overvågning</title>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #0f1117;
+        color: #e5e7eb;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    h1 { font-size: 22px; margin-bottom: 4px; }
+    .timestamp { color: #9ca3af; font-size: 13px; margin-bottom: 24px; }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 2px solid #374151;
+        color: #9ca3af;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    td { padding: 12px; border-bottom: 1px solid #1f2937; font-size: 14px; }
+    .ticker { font-weight: 600; }
+    .positive { color: #34d399; }
+    .negative { color: #f87171; }
+    .signals { font-size: 13px; color: #d1d5db; }
+    .alert-high { background: rgba(248, 113, 113, 0.08); border-left: 3px solid #f87171; }
+    .alert-medium { background: rgba(251, 191, 36, 0.06); border-left: 3px solid #fbbf24; }
+    .alert-none { border-left: 3px solid transparent; }
+    .error-row { color: #6b7280; font-style: italic; }
+    .legend { margin-top: 20px; font-size: 12px; color: #6b7280; }
+</style>
+</head>
+<body>
+    <h1>📊 Aktie-overvågning</h1>
+    <div class="timestamp">Sidst opdateret: 22-08-2026 18:36:57</div>
+    <table>
+        <tr>
+            <th>Ticker</th>
+            <th>Pris</th>
+            <th>Ændring</th>
+            <th>Volumen</th>
+            <th>RSI</th>
+            <th>Signaler</th>
+        </tr>
+        
+        <tr class="alert-high">
+            <td class="ticker">PLTR</td>
+            <td>$179.94</td>
+            <td class="positive">+3.44%</td>
+            <td>0.9x</td>
+            <td>79</td>
+            <td class="signals">Pris op 3.4%, RSI overkøbt (79)</td>
+        </tr>
+        <tr class="alert-high">
+            <td class="ticker">COIN</td>
+            <td>$186.49</td>
+            <td class="positive">+8.20%</td>
+            <td>2.6x</td>
+            <td>75</td>
+            <td class="signals">Pris op 8.2%, Volumen 2.6x normalt, RSI overkøbt (75)</td>
+        </tr>
+        <tr class="alert-high">
+            <td class="ticker">MSTR</td>
+            <td>$119.25</td>
+            <td class="positive">+6.10%</td>
+            <td>2.4x</td>
+            <td>72</td>
+            <td class="signals">Pris op 6.1%, Volumen 2.4x normalt, RSI overkøbt (72)</td>
+        </tr>
+        <tr class="alert-medium">
+            <td class="ticker">SMCI</td>
+            <td>$37.24</td>
+            <td class="positive">+2.03%</td>
+            <td>0.7x</td>
+            <td>72</td>
+            <td class="signals">RSI overkøbt (72)</td>
+        </tr>
+            <tr class="error-row">
+                <td>TSLA</td>
+                <td colspan="5">Fejl: Too Many Requests. Rate limited. Try after a while.</td>
+            </tr>
+        <tr class="alert-none">
+            <td class="ticker">NVDA</td>
+            <td>$214.72</td>
+            <td class="negative">-0.98%</td>
+            <td>0.8x</td>
+            <td>59</td>
+            <td class="signals">—</td>
+        </tr>
+        <tr class="alert-none">
+            <td class="ticker">AMD</td>
+            <td>$473.25</td>
+            <td class="positive">+0.81%</td>
+            <td>0.5x</td>
+            <td>47</td>
+            <td class="signals">—</td>
+        </tr>
+    </table>
+    <div class="legend">
+        🔴 Høj alert (2+ signaler) · 🟡 Medium (1 signal) · Ingen kant = intet signal<br>
+        Tærskler: prisændring ≥ 3.0% · volumen ≥ 1.5x snit · RSI ≥ 70 eller ≤ 30
+    </div>
+</body>
+</html>
